@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>tabs list</title>
+
+  <style>
+    /* Empêche tout débordement lié aux paddings/marges internes */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 480px;
+      height: 560px;
+      margin: 0;
+      padding: 20px;
+      background: #f5f7fa;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;     /* centre horizontalement */
+      text-align: center;      /* centre le texte */
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2c3e50;
+      font-weight: 700;
+    }
+
+    #actions {
+      margin-bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center; /* centre le bouton */
+      gap: 10px; /* espace vertical entre les boutons */
+    }
+
+    button {
+      background: #3498db;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+
+    /* Container de la liste centré */
+    #liste {
+      width: 100%;
+      max-width: 440px; /* évite de toucher les bords */
+      padding-right: 4px;
+    }
+
+    /* Style des boutons fins pour les onglets */
+    .tab-btn {
+      display: block;
+      width: 100%;
+      text-align: left; /* lisibilité */
+      background: white;
+      border: 1px solid #d0d7de;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-size: 14px;
+      color: #2c3e50;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      overflow-wrap: break-word;
+    }
+
+    .tab-btn:hover {
+      background: #ecf5ff;
+      border-color: #3498db;
+    }
+    
+    #pasteZone {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#urlInput {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  resize: vertical;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <h2>Tabs management addon</h2>
+
+  <div id="actions">
+    <button id="copyBtn">copy URL list</button>
+    </br>
+    <button id="openUrlsBtn">Ouvrir les URL</button>
+  </div>
+  <div id="pasteZone">
+    <textarea id="urlInput" placeholder="Colle ici une liste d'URL, une par ligne"></textarea>
+  </div>
+
+  <h2>Current tabs list</h2>
+
+  <div id="liste"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
